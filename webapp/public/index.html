@@ -30,7 +30,7 @@
   <h1><img src="/mbs_radio_logo_white-01.png" alt="MBS Radio"></h1>
 
   <article class="center">
-    <p><span id="live-badge" class="badge">OFF AIR</span></p>
+    <p><span id="live-badge" class="badge">MBS RADIO 24</span></p>
     <p id="now-playing">Loading track info&hellip;</p>
     <audio id="player" src="/stream.mp3" controls preload="none"></audio>
     <hr />
@@ -105,7 +105,7 @@ async function status() {
   try {
     const s = await (await fetch("/api/status", { cache: "no-store" })).json();
     $("live-badge").className = "badge" + (s.anyLive ? " live" : "");
-    $("live-badge").textContent = s.anyLive ? "LIVE" : "OFF AIR";
+    $("live-badge").textContent = s.anyLive ? "LIVE" : "MBS RADIO 24";
     $("now-playing").textContent = s.nowPlaying ? "Now playing: " + s.nowPlaying : "Live stream";
     liveTitle = s.nowPlaying || "Live Stream";
     if (!player.paused) setMeta(liveTitle); // keep lock screen title current while live plays

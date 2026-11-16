@@ -87,7 +87,10 @@ output.file(
   to_record
 )
 
-holding = playlist(mode="randomize", reload_mode="watch", "/music")
+songs = playlist(mode="randomize", reload_mode="watch", "/music/songs")
+idents = playlist(mode="randomize", reload_mode="watch", "/music/idents")
+
+holding = rotate(weights=[2,1], [songs, idents])
 
 
 fade_dur = 1.0
