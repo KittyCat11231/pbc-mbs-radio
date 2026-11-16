@@ -25,6 +25,7 @@ audio { width: 100% }
 #shows b { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
 #shows button { width: 2.4rem; padding: .3rem; border-radius: 50% }
 #shows a { text-decoration: none; font-size: 1.2rem }
+#program-name { font-weight: 700; margin-bottom: 0rem; }
 
 /* ---- live now + upcoming shows (player) ---- */
 :is(#upcoming, #live-now) { padding: 0; margin: 0 }
