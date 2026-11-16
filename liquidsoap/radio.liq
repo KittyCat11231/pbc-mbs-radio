@@ -87,10 +87,15 @@ output.file(
   to_record
 )
 
+settings.lufs.track_gain_target := -18.
+enable_lufs_track_gain_metadata()
+
 songs = playlist(mode="randomize", reload_mode="watch", "/music/songs")
 idents = playlist(mode="randomize", reload_mode="watch", "/music/idents")
 
 holding = rotate(weights=[2,1], [songs, idents])
+
+holding = normalize_track_gain(holding)
 
 
 fade_dur = 1.0
