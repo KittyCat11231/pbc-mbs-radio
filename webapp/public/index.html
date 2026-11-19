@@ -121,7 +121,7 @@ const fmtDate = iso => new Date(iso).toLocaleString([], { dateStyle: "medium", t
 fetch("/api/shows", { cache: "no-store" }).then(r => r.json()).then(({ shows, liveNow }) => {
   const OFF_AIR_TEXT = "We're not live right now, but you can see our upcoming live shows or listen to previous broadcasts below";
   $("live-now").textContent = "";
-  $("program-name").textContent = liveNow.name.split(' | ')[0];
+  $("program-name").textContent = liveNow ? liveNow.name.split(' | ')[0] : "MBS Radio 24";
   const li = document.createElement("li");
   if (liveNow) {
     li.innerHTML = `<b></b><p></p>`;
