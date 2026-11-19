@@ -1,0 +1,13 @@
+# http://localhost:8080/
+services:
+  nginx:
+    image: nginx:latest
+    container_name: mbs-nginx-dev
+    restart: unless-stopped
+    depends_on:
+      - icecast
+      - webapp
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/dev.conf:/etc/nginx/conf.d/default.conf:ro

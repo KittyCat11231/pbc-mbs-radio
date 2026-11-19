@@ -15,7 +15,15 @@ After creating a `.env` file based on `.env.example` file, you can run the entir
 docker compose up --build
 ```
 
-You will need to provide your own reverse proxy for Icecast and the player/management web app, see `nginx.conf.example`. The Liquidsoap harbor ingest endpoints should be exposed directly, as running them through a reverse proxy will cause issues with the source connection.
+You will need to provide your own reverse proxy for Icecast and the player/management web app, see `nginx.conf.example`.
+
+To run this locally for dev with an NGINX reverse proxy, you can include the `docker-compose.dev.yml` file:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+```
+
+Then open `http://localhost:8080/`. The Liquidsoap harbor ingest endpoints should be exposed directly, as running them through a reverse proxy will cause issues with the source connection.
 
 **Endpoints**
 - `localhost:9000/primary` — Primary source ingest (Liquidsoap)
